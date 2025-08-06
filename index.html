@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nippon Express – Transportation Control Tower</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Leaflet.js Map Library -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+<body>
+  <header>
+    <h1>🚛 Nippon Express – Transportation Control Tower</h1>
+    <p>Driver Communication & Tracking Portal</p>
+  </header>
+
+  <nav>
+    <a href="#trip-sheet">📑 Trip Sheet</a>
+    <a href="#late-info">⏱️ Delay Report</a>
+    <a href="#map">🗺 Live Tracking</a>
+    <a href="#whatsapp">📱 WhatsApp</a>
+    <a href="#admin">📊 Admin Dashboard</a>
+  </nav>
+
+  <!-- Trip Sheet Submission -->
+  <section id="trip-sheet">
+    <h2>📑 Submit Trip Sheet</h2>
+    <form id="tripForm">
+      <input type="text" id="driverName" placeholder="Driver Name" required>
+      <input type="text" id="truckNumber" placeholder="Truck Number" required>
+      <input type="file" id="tripFile" required>
+      <button type="submit">📤 Submit</button>
+    </form>
+  </section>
+
+  <!-- Delay Reporting -->
+  <section id="late-info">
+    <h2>⏱️ Delay or Breakdown Report</h2>
+    <form id="delayForm">
+      <input type="text" id="delayDriver" placeholder="Driver Name" required>
+      <select id="delayReason" required>
+        <option value="">--Select Reason--</option>
+        <option>🚦 Traffic Delay</option>
+        <option>🔧 Vehicle Breakdown</option>
+        <option>🏭 Supplier Delay</option>
+        <option>📋 Other</option>
+      </select>
+      <textarea id="delayRemarks" placeholder="Remarks"></textarea>
+      <button type="submit">📩 Report</button>
+    </form>
+  </section>
+
+  <!-- Free Map -->
+  <section id="map">
+    <h2>🗺 Live Truck Tracking</h2>
+    <div id="leafletMap"></div>
+  </section>
+
+  <!-- WhatsApp -->
+  <section id="whatsapp">
+    <h2>📱 WhatsApp Updates</h2>
+    <p>All drivers must send updates to:</p>
+    <div class="whatsapp-box">
+      <h3>📞 +91 98765 43210</h3>
+      <a href="https://wa.me/919876543210" target="_blank" class="whatsapp-btn">💬 Send WhatsApp Update</a>
+    </div>
+  </section>
+
+  <!-- Admin Dashboard -->
+  <section id="admin">
+    <h2>📊 Admin Dashboard</h2>
+    <table id="reportTable">
+      <thead>
+        <tr>
+          <th>Driver</th>
+          <th>Reason</th>
+          <th>Remarks</th>
+          <th>Time</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <button id="exportExcel">📥 Export to Excel</button>
+  </section>
+
+  <footer>
+    <p>© 2025 Nippon Express Logistics | Developed by S. Lokesh</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
